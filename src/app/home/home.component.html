@@ -1,0 +1,65 @@
+<!-- needs to change the variable sampleLeagues.response -->
+<div style="display: flex">
+    <div style="margin-top: 5px; padding-left: 5px;">
+        <div
+            style="font-size:larger;font-weight: bolder;border: 2px solid white;display: flex;align-items: center;justify-content: center;">
+            Leagues</div>
+        <div style="height: 80vh; overflow: auto;margin-top: 5px;">
+            <div *ngFor="let item of sampleLeagues.response" class="leagueCard"
+                style="height: 75px;border: 1px solid white;display: flex;align-items: center;justify-content: center;">
+                <img [src]="item.league.logo" [alt]="item.league.name" style="width: 40px;height: 40px;">
+                <div (click)="getFixtureData(item)" style="padding: 7px;">
+                    {{ item.league.name }} - {{ item.country.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 5px; width: 100%;padding-left: 5px;padding-right: 5px;">
+        <div
+            style="font-size:larger;font-weight: bolder;border: 2px solid white;display: flex;align-items: center;justify-content: center;">
+            Fixture
+            <button style="margin-left: 30px;" class="btn btn-warning mt-1 mb-1"
+                (click)="getLiveFixtureData()">Refresh</button>
+        </div>
+        <div style="height: 80vh; overflow: auto;margin-top: 5px;">
+            <div *ngIf="!showNoWrapper">
+                <div *ngFor="let item of fixtures" style="border: 1px solid white; border-radius: 5px; margin: 5px;">
+                    <div>
+                        <span
+                            style="justify-content: end;display: flex;align-items: center;padding-right: 10px;padding-top: 10px;"><button
+                                class="btn btn-info" (click)="goToAIPage(item)">AI Assisant</button></span>
+
+                        <div style="display: flex;align-items: center;justify-content: center;padding: 5px;">
+                            <img style="height: 50px;" [src]="item.teams.away.logo" [alt]="item.teams.away.name">
+                            <div style="padding-left: 10px;padding-right: 10px;">Time Elapsed :
+                                {{item.fixture.status.elapsed}}</div>
+                            <img style="height: 50px;" [src]="item.teams.home.logo" [alt]="item.teams.home.name">
+                        </div>
+                        <div style="display: flex; align-items: center;justify-content: center;">
+                            {{item.fixture.status.long}}</div>
+                        <div style="display: flex; align-items: center;justify-content: center;">
+                            <div style="font-weight: bolder;"> {{ item.goals.away }} - {{ item.goals.home }} </div>
+                        </div>
+                        <div style="display: flex; align-items: center;justify-content: center;">
+                            <div style="font-size:small;">AWAY - HOME</div>
+                        </div>
+                        <div style="display: flex; align-items: center;justify-content: center;padding-top: 10px;">
+                            <div style="font-weight: bolder;font-size: large;"> {{ item.teams.away.name }} - {{
+                                item.teams.home.name }} </div>
+                        </div>
+                        <div
+                            style="display: flex;justify-content: center;align-items: center;padding-top: 10px;padding-bottom: 10px;">
+                            <div>Stadium Name: {{ item.fixture.venue.name }}</div>
+                            <div style="padding-left: 30px;">City: {{ item.fixture.venue.city }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="showNoWrapper">
+                <div style="justify-content: center;align-items: center;display: flex;height: 40vh;">
+                    No Live Matches at the moment
+                </div>
+            </div>
+
+        </div>
+    </div>
