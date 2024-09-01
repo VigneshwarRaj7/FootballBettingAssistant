@@ -5,7 +5,7 @@
             style="font-size:larger;font-weight: bolder;border: 2px solid white;display: flex;align-items: center;justify-content: center;">
             Leagues</div>
         <div style="height: 80vh; overflow: auto;margin-top: 5px;">
-            <div *ngFor="let item of sampleLeagues.response" class="leagueCard"
+            <div *ngFor="let item of leagues" class="leagueCard"
                 style="height: 75px;border: 1px solid white;display: flex;align-items: center;justify-content: center;">
                 <img [src]="item.league.logo" [alt]="item.league.name" style="width: 40px;height: 40px;">
                 <div (click)="getFixtureData(item)" style="padding: 7px;">
@@ -25,7 +25,7 @@
         <div style="height: 80vh; overflow: auto;margin-top: 5px;">
             <div *ngIf="!showNoWrapper">
                 <div *ngFor="let item of fixtures" style="border: 1px solid white; border-radius: 5px; margin: 5px;">
-                    <div>
+                    <div (click)="goToDetailPage(item)">
                         <span
                             style="justify-content: end;display: flex;align-items: center;padding-right: 10px;padding-top: 10px;"><button
                                 class="btn btn-info" (click)="goToAIPage(item)">AI Assisant</button></span>

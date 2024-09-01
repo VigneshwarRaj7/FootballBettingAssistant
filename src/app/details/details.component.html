@@ -1,0 +1,55 @@
+<div class="d-flex">
+    <div style="display: flex;width: 40%;">
+        <div *ngFor="let item of matchData" style="width: 50%;">
+            <div style="border: 1px solid white;border-radius: 3px;padding: 10px;margin: 15px;">
+                <div><span>Team:&nbsp;</span><span>{{item.team.name}}</span></div>
+                <hr>
+                <div><span>Team Formation:&nbsp;</span><span>{{item.formation}}</span></div>
+                <hr>
+                <div><span>Coach Name:&nbsp;</span><span>{{item.coach.name}}</span></div>
+                <hr>
+                <div style="font-weight: bold;text-decoration: underline;">Starting XI: </div>
+                <div *ngFor="let i of item.startXI">
+                    <span>{{i.player.name}}</span>
+                    <span> - </span>
+                    <span>{{i.player.number}}</span>
+                    <span> - </span>
+                    <span>{{i.player.pos}}</span>
+                </div>
+                <hr>
+                <div style="font-weight: bold;text-decoration: underline;">Substitutes:</div>
+                <div *ngFor="let i of item.substitutes">
+                    <span>{{i.player.name}}</span>
+                    <span> - </span>
+                    <span>{{i.player.number}}</span>
+                    <span> - </span>
+                    <span>{{i.player.pos}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 50%;">
+        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+            style="width: 100%; height: 400px; display: block; border-radius: 5px;margin: 10px;">
+        </highcharts-chart>
+        <div style="height: 40vh;">
+            <div style="text-decoration: underline;font-size: x-large;font-weight: bold;">Events</div>
+            <hr>
+            <div style="height: 40vh;overflow: auto;">
+                <div *ngFor="let item of eventData"
+                    style="border: 1px solid white;padding: 5px;margin: 5px;display: flex;align-items: center;justify-content: center;">
+                    <img [src]="item.team.logo" [alt]="item.team.name" style="width: 50px;height: 50px;">
+                    <div style="margin: 10px;">
+                        <div>Time : {{item.time.elapsed}}&nbsp;mins</div>
+                        <div>Comments: {{item.detail}}</div>
+                        <div>Player : {{item.player.name}}</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

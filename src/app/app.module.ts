@@ -13,13 +13,15 @@ import { AIComponent } from './ai/ai.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { StandingsComponent } from './standings/standings.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AIComponent,
-    StandingsComponent
+    StandingsComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
