@@ -11,6 +11,7 @@
                 <div (click)="getFixtureData(item)" style="padding: 7px;">
                     {{ item.league.name }} - {{ item.country.name }}
                 </div>
+                <button class="btn btn-primary h-10" (click)="getToStandings(item)">View Standings</button>
             </div>
         </div>
     </div>
@@ -57,7 +58,7 @@
             </div>
             <div *ngIf="showNoWrapper">
                 <div style="justify-content: center;align-items: center;display: flex;height: 40vh;">
-                    No Live Matches at the moment
+                    No Live Matches at the moment.
                 </div>
             </div>
 

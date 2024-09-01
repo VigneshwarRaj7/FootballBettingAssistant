@@ -11,20 +11,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AIComponent } from './ai/ai.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-// import { ChatService } from './chat.service';
+import { StandingsComponent } from './standings/standings.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AIComponent
+    AIComponent,
+    StandingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent],
